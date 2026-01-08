@@ -1,6 +1,6 @@
 {
   "name": "pdf-layout",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "description": "Resolve overall document component's layout",
   "author": "Nimrod Ram <nimrod@simpleclosure.com>",
