@@ -20,7 +20,7 @@
     "@babel/runtime": "^7.20.13",
     "@react-pdf/fns": "3.0.0",
     "@react-pdf/image": "^3.0.0",
-    "@react-pdf/pdfkit": "^4.0.0",
+    "@react-pdf/pdfkit": "4.0.0",
     "@react-pdf/primitives": "^4.0.0",
     "@react-pdf/stylesheet": "^5.0.0",
     "@react-pdf/textkit": "^5.0.0",
