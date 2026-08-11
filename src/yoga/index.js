@@ -2,14 +2,19 @@
 
 import { loadYoga as yogaLoadYoga } from 'yoga-layout/load';
 
-let instance;
+let instancePromise;
 
 export const loadYoga = async () => {
-  if (!instance) {
+  if (!instancePromise) {
     // Yoga WASM binaries must be asynchronously compiled and loaded
-    // to prevent Event emitter memory leak warnings, Yoga must be loaded only once
-    instance = await yogaLoadYoga();
+    // to prevent Event emitter memory leak warnings, Yoga must be loaded only once.
+    // Memoize the in-flight promise (not just the resolved value) so concurrent
+    // callers await the same WASM instantiation instead of each starting their
+    // own, which produces distinct Embind classes and cross-instance BindingErrors.
+    instancePromise = yogaLoadYoga();
   }
+
+  const instance = await instancePromise;
 
   const config = instance.Config.create();
 
